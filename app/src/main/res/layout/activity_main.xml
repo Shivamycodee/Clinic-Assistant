@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="25sp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/crtAcc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30sp"
+        android:hint="@string/create_account"
+        android:textColorHint="#78909C"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/fname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/crtAcc"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40sp"
+        android:ems="10"
+        android:hint="@string/first_name"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/lname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fname"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30sp"
+        android:ems="10"
+        android:hint="@string/last_name"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        tools:ignore="LabelFor,TextFields" />
+
+    <EditText
+        android:id="@+id/mail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lname"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30sp"
+        android:ems="10"
+        android:hint="@string/enter_email"
+        android:importantForAutofill="no"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/phonNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30sp"
+        android:ems="10"
+        android:hint="@string/phone_number"
+        android:inputType="phone"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
+        tools:ignore="Autofill,LabelFor" />
+
+    <EditText
+        android:id="@+id/LicNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30sp"
+        android:hint="@string/licence_no"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
+        android:layout_below="@id/phonNo"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        tools:ignore="Autofill,LabelFor"/>
+
+    <Button
+        android:id="@+id/btnOtp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/LicNo"
+        android:layout_marginTop="45sp"
+        android:text="@string/get_otp" />
+
+    <EditText
+        android:id="@+id/inOtp"
+        android:layout_width="150sp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/btnOtp"
+        android:layout_alignParentEnd="true"
+        android:ems="10"
+        android:hint="@string/enter_otp"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
+        android:visibility="invisible"
+        tools:ignore="LabelFor" />
+
+    <Button
+        android:id="@+id/btnVerfiy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inOtp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30sp"
+        android:minHeight="59sp"
+        android:text="@string/verify" />
+
+    <TextView
+        android:id="@+id/fnameWarn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fname"
+        android:layout_marginTop="5sp"
+        android:text="@string/fname_warn"
+        android:textColor="#E81414"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/lnameWarn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lname"
+        android:text="@string/lname_warn"
+        android:textColor="#E81414"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/mailWarn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mail"
+        android:text="@string/mail_warn"
+        android:textColor="#E81414"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/phonNoWarn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/phonNo"
+        android:text="@string/phNo_warn"
+        android:textColor="#E81414"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/inOtpWarn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30sp"
+        android:layout_below="@id/inOtp"
+        android:layout_alignEnd="@id/inOtp"
+        android:text="@string/otp_warn"
+        android:textColor="#E81414"
+        android:visibility="invisible" />
+
+
+</RelativeLayout>
+

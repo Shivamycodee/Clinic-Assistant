@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/bottomSheetContainer"
+    android:layout_height="match_parent"
+    android:background="@drawable/rounded"
+    android:padding="30sp"
+    tools:context=".MainActivity2">
+
+
+
+
+    <EditText
+        android:id="@+id/crtPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60sp"
+        android:ems="10"
+        android:hint="@string/create_password"
+        android:importantForAutofill="no"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:textColorHint="#757575" />
+
+    <EditText
+        android:id="@+id/cofPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/crtPass"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40sp"
+        android:ems="10"
+        android:hint="@string/confirmPassword"
+        android:importantForAutofill="no"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:textColorHint="#757575" />
+
+    <Button
+        android:id="@+id/passBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cofPass"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80sp"
+        android:textSize="20sp"
+        android:text="@string/submit" />
+
+</RelativeLayout>
+
+

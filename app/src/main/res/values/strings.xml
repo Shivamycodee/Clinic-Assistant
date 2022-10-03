@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">ClinicManage</string>
+    <string name="create_account">Create Account</string>
+    <string name="verify">Verify</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="get_otp">Get OTP</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="last_name">Last Name</string>
+    <string name="first_name">First Name</string>
+    <string name="fname_warn">Enter Your First name</string>
+    <string name="lname_warn">Enter Your Last Name</string>
+    <string name="mail_warn">Enter Your Email Address</string>
+    <string name="phNo_warn">Enter Your Phone Number</string>
+    <string name="otp_warn">*Enter OTP</string>
+    <string name="create_password">Create password</string>
+    <string name="confirmPassword">Confirm passowrd</string>
+    <string name="almost_done">Almost done</string>
+    <string name="submit">SUBMIT</string>
+    <string name="licence_no">Licence No.</string>
+    <string name="enter_mail">Enter Email</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="sign_verify">Verify</string>
+</resources>

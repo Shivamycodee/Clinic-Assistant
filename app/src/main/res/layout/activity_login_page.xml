@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".loginPage"
+    android:padding="35sp">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/verifyMail"
+        android:layout_marginTop="130sp"
+        android:layout_centerHorizontal="true"
+        android:inputType="text"
+        android:hint="@string/enter_mail"
+        android:minHeight="50sp"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/verifyPassword"
+        android:layout_below="@id/verifyMail"
+        android:layout_marginTop="60sp"
+        android:hint="@string/enter_password"
+        android:inputType="textPassword"
+        android:autofillHints="no"
+        android:minHeight="50sp"
+        android:layout_centerHorizontal="true"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/verifyUser"
+        android:layout_below="@id/verifyPassword"
+        android:layout_marginTop="90sp"
+        android:text="@string/sign_verify"
+        android:textSize="15sp"
+        />
+
+</RelativeLayout>
