@@ -21,20 +21,6 @@ public class loginPage extends AppCompatActivity {
         password = findViewById(R.id.verifyPassword);
         verify = findViewById(R.id.verifyUser);
 
-        DoctorDatabase db = new DoctorDatabase(loginPage.this);
-
-        verify.setOnClickListener(view -> {
-          String mailData = mail.getText().toString();
-          String passwordData = password.getText().toString();
-
-//          if(db.verifyUser(mailData,passwordData))
-//              Toast.makeText(this, "Verified User", Toast.LENGTH_SHORT).show();
-//          else
-//              Toast.makeText(this, "You are not registered", Toast.LENGTH_SHORT).show();
-
-
-        });
-
 
     }
 }

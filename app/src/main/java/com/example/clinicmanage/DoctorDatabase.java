@@ -21,7 +21,6 @@ public class DoctorDatabase extends SQLiteOpenHelper {
     public static final String E_MAIL = " EMAIL";
     public static final String PH_NUMBER = " PHNUMBER";
     public static final String LIC_NO = "LICNO";
-    public static final String PASSWORD = "Password";
 
     public DoctorDatabase(@Nullable Context context) {
         super(context,"DoctorDatabase.db",null,1);
@@ -40,7 +39,7 @@ public class DoctorDatabase extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS "+DOCTOR_TABLE);
         onCreate(db);
-        db.execSQL("ALTER TABLE DoctorTable ADD COLUMN " + PASSWORD + " TEXT ");
+//        db.execSQL("ALTER TABLE DoctorTable ADD COLUMN " + PASSWORD + " TEXT ");
     }
 
     public void addData(String name,String Lastname,String mail,String phNo,String lic){
@@ -68,22 +67,5 @@ public class DoctorDatabase extends SQLiteOpenHelper {
         cursor.close();
         return true;
     }
-
-
-//    public boolean verifyUser(String mailData, String passwordData) {
-//
-//        SQLiteDatabase db = this.getReadableDatabase();
-//        Cursor cursor = db.rawQuery("Select * from DoctorTable",null);
-//
-//
-//        cursor.close();
-//        return true;
-//    }
-//
-//    public void addPassword(String confirmPassword) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        ContentValues val = new ContentValues();
-//    }
-//
 
 } // class ends...

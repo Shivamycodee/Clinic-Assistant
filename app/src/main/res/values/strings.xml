@@ -12,13 +12,12 @@
     <string name="lname_warn">Enter Your Last Name</string>
     <string name="mail_warn">Enter Your Email Address</string>
     <string name="phNo_warn">Enter Your Phone Number</string>
-    <string name="otp_warn">*Enter OTP</string>
+    <string name="otp_warn">Enter OTP</string>
     <string name="create_password">Create password</string>
-    <string name="confirmPassword">Confirm passowrd</string>
+    <string name="confirmPassword">Confirm password</string>
     <string name="almost_done">Almost done</string>
     <string name="submit">SUBMIT</string>
     <string name="licence_no">Licence No.</string>
     <string name="enter_mail">Enter Email</string>
     <string name="enter_password">Enter Password</string>
-    <string name="sign_verify">Verify</string>
 </resources>
