@@ -20,4 +20,5 @@
     <string name="licence_no">Licence No.</string>
     <string name="enter_mail">Enter Email</string>
     <string name="enter_password">Enter Password</string>
+    <string name="doctorName">Doctor Fullname</string>
 </resources>

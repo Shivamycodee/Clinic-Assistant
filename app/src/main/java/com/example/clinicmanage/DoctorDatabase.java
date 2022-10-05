@@ -35,7 +35,7 @@ public class DoctorDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        if(newVersion>oldVersion) db.execSQL("ALTER TABLE DoctorTable ADD COLUMN " + PASSWORD + " TEXT");
+//        if(newVersion>oldVersion) db.execSQL("ALTER TABLE DoctorTable ADD COLUMN " + PASSWORD + " TEXT");
     }
 
     public void addData(String name,String Lastname,String mail,String phNo,String lic){
