@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         String ph = PhNo.getText().toString();
         String lic = licNo.getText().toString();
 
-        boolean flag =  db.checkphNumber(view,ph);
+        boolean flag =  db.checkNumber(view,ph);
 
         if(flag){
             db.addData(nme, lame, ml, ph,lic);

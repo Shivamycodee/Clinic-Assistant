@@ -21,13 +21,11 @@ public class DoctorDatabase extends SQLiteOpenHelper {
     public static final String E_MAIL = " EMAIL";
     public static final String PH_NUMBER = " PHNUMBER";
     public static final String LIC_NO = "LICNO";
+    public static final String PASSWORD = "Password";
 
     public DoctorDatabase(@Nullable Context context) {
-        super(context,"DoctorDatabase.db",null,1);
+        super(context,"DoctorDatabase.db",null,2);
     }
-
-
-
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -36,10 +34,8 @@ public class DoctorDatabase extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-        db.execSQL("DROP TABLE IF EXISTS "+DOCTOR_TABLE);
-        onCreate(db);
-//        db.execSQL("ALTER TABLE DoctorTable ADD COLUMN " + PASSWORD + " TEXT ");
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        if(newVersion>oldVersion) db.execSQL("ALTER TABLE DoctorTable ADD COLUMN " + PASSWORD + " TEXT");
     }
 
     public void addData(String name,String Lastname,String mail,String phNo,String lic){
@@ -54,7 +50,7 @@ public class DoctorDatabase extends SQLiteOpenHelper {
     }
 
 
-    public boolean checkphNumber(View view, String ph){
+    public boolean checkNumber(View view, String ph){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("Select * from DoctorTable",null);
         if(cursor.getCount()==0) Toast.makeText(view.getContext(), "NO DATA RECORD", Toast.LENGTH_SHORT).show();
@@ -68,4 +64,26 @@ public class DoctorDatabase extends SQLiteOpenHelper {
         return true;
     }
 
+
+    public void passPassword(String confirmPassword) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("Select * from DoctorTable",null);
+        cursor.moveToLast();
+        String sql = "UPDATE DoctorTable SET Password = " + confirmPassword + " WHERE  PHNUMBER = " + cursor.getString(3);
+            db.execSQL(sql);
+
+    }
+
+    public boolean verifyUser(String mail, String password) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("Select * from DoctorTable",null);
+        while(cursor.moveToNext()){
+            String temp = cursor.getString(2);
+            if(Objects.equals(temp, mail)){
+                String pass = cursor.getString(5);
+                if(password.equals(pass)) return true;
+            }
+        }
+        return false;
+    }
 } // class ends...

@@ -50,10 +50,13 @@ public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup c
         String createPassword = crt.getText().toString();
         String confirmPassword = cmf.getText().toString();
 
+        DoctorDatabase db = new DoctorDatabase(getActivity());
+
         if(createPassword.equals(confirmPassword)){
              if(!createPassword.equals("")){
                 Toast.makeText(getActivity(), "successfully created", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(),loginPage.class);
+                db.passPassword(confirmPassword);
                 startActivity(intent);
             } else Toast.makeText(getActivity(), "Create a password", Toast.LENGTH_SHORT).show();
         }else Toast.makeText(getActivity(),"Create/Confirm do not match", Toast.LENGTH_SHORT).show();
