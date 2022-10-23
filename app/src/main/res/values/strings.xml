@@ -2,6 +2,7 @@
     <string name="app_name">ClinicManage</string>
     <string name="create_account">Create Account</string>
     <string name="verify">Verify</string>
+    <string name="SignIn">SIGN IN</string>
     <string name="enter_otp">Enter OTP</string>
     <string name="get_otp">Get OTP</string>
     <string name="phone_number">Phone Number</string>
@@ -20,5 +21,7 @@
     <string name="licence_no">Licence No.</string>
     <string name="enter_mail">Enter Email</string>
     <string name="enter_password">Enter Password</string>
-    <string name="doctorName">Doctor Fullname</string>
+    <string name="doctorName">Doctor Fullness</string>
+    <string name="show_image">show Image</string>
+    <string name="Add_image">Add mage</string>
 </resources>

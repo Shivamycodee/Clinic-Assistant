@@ -6,6 +6,15 @@
     tools:context=".loginPage"
     android:padding="35sp">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SIGN IN"
+        android:layout_centerHorizontal="true"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        />
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,14 +38,21 @@
         android:minHeight="50sp"
         android:layout_centerHorizontal="true"
         />
+
+    <Button
+        android:id="@+id/verifyUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/verifyPassword"
+        android:layout_marginTop="90sp"
+        android:text="@string/SignIn"
+        android:textSize="15sp" />
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/verifyUser"
-        android:layout_below="@id/verifyPassword"
-        android:layout_marginTop="90sp"
-        android:text="@string/verify"
-        android:textSize="15sp"
-        />
+        android:id="@+id/signUp"
+        android:layout_below="@id/verifyUser"
+        android:text="SIGN UP" />
 
 </RelativeLayout>

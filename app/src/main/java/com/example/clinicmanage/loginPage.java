@@ -11,7 +11,7 @@ import android.widget.Toast;
 public class loginPage extends AppCompatActivity {
 
     EditText mail,password;
-    Button verify;
+    Button verify,signup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,10 +21,12 @@ public class loginPage extends AppCompatActivity {
         mail = findViewById(R.id.verifyMail);
         password = findViewById(R.id.verifyPassword);
         verify = findViewById(R.id.verifyUser);
+        signup = findViewById(R.id.signUp);
 
         DoctorDatabase db = new DoctorDatabase(this);
 
         verify.setOnClickListener(view ->{
+
          String Mail = mail.getText().toString();
          String Password = password.getText().toString();
 
@@ -35,6 +37,11 @@ public class loginPage extends AppCompatActivity {
               Toast.makeText(this, "Successfully logged in", Toast.LENGTH_SHORT).show();
           }
           else Toast.makeText(this, "Not registered", Toast.LENGTH_SHORT).show();
+        });
+
+        signup.setOnClickListener(view ->{
+            Intent intent = new Intent(loginPage.this,MainActivity.class);
+            startActivity(intent);
         });
 
 

@@ -2,4 +2,9 @@
 <resources>
 
 
+<!--    <item name="topAppBar" type="id">topAppBar</item>-->
+    <item name="topAppBar" type="id">TopAppBar</item>
+    <item name="toolbar" type="id">toolbar</item>
+    <item name="emailline" type="id">emailLine</item>
+    <item name="patientData" type="id">patientData</item>
 </resources>

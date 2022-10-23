@@ -1,6 +1,7 @@
 package com.example.clinicmanage;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,12 +13,18 @@ public class MainActivity extends AppCompatActivity {
 
     EditText Fname , Lname, Mail, PhNo, otp,licNo;
     TextView fnameWarn, lnameWarn, mailWarn, phonNoWarn, otpWarn;
-    Button otpBtn, verBtn;
-
+    Button otpBtn, verBtn; public static int i=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+    if(i == 1) {
+        Intent intent = new Intent(this, loginPage.class);
+        i = 2;
+        startActivity(intent);
+    }
 
         otpBtn = findViewById(R.id.btnOtp);
         verBtn = findViewById(R.id.btnVerfiy);

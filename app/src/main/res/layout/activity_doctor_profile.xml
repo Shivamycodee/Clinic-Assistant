@@ -4,34 +4,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="15sp"
     tools:context=".doctorProfile">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="Profile"
+            app:titleMarginStart="120sp"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="220sp"
-        android:layout_height="220dp"
+        android:layout_width="230dp"
+        android:layout_height="230dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40sp"
-        android:layout_marginBottom="456dp"
+        android:layout_marginTop="57dp"
         android:background="@drawable/round_outline"
         android:clipToOutline="true"
-        android:scaleType="fitXY"
-        app:srcCompat="@mipmap/ic_profile_foreground" />
+        android:contentDescription="@string/show_image"
+        android:scaleType="centerCrop"
+        app:srcCompat="@mipmap/ic_doctor2_foreground" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
-        android:layout_width="70sp"
-        android:layout_height="70sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignEnd="@id/imageView"
         android:layout_alignBottom="@id/imageView"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="15dp"
         android:background="@color/black"
+        android:layout_marginBottom="8sp"
+        android:layout_marginEnd="8sp"
         android:clickable="true"
-        android:contentDescription="AddImage"
+        android:contentDescription="@string/Add_image"
         app:backgroundTint="#FFFFFF"
         app:srcCompat="@android:drawable/ic_input_add" />
 
@@ -43,6 +65,111 @@
         android:layout_marginTop="30sp"
         android:id="@+id/doctorName"
         android:text="@string/doctorName" />
+
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="20dp"
+        android:layout_below="@id/doctorName"
+        app:cardBackgroundColor="@color/black"
+        app:cardMaxElevation="12dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+        >
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:layout_marginTop="30sp"
+      >
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="30sp"
+          android:text="Register No."
+          />
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="12345678999"
+          android:layout_marginStart="110sp"
+          />
+
+
+  </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="100sp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30sp"
+            android:text="EMIAL"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="110sp"
+            android:text="shivamyadav@gmail.com"
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="160sp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30sp"
+            android:text="Number"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="140sp"
+            android:text="8469333354"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Patient Data"
+        android:id="@+id/patientData"
+        android:layout_marginHorizontal="10sp"
+        android:layout_marginTop="230sp"
+    />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LOGOUT"
+            android:layout_marginTop="280sp"
+            android:layout_marginHorizontal="10sp"
+            />
+
+    </androidx.cardview.widget.CardView>
 
 
 </RelativeLayout>
