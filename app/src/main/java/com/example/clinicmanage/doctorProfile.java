@@ -5,12 +5,15 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -20,6 +23,8 @@ public class doctorProfile extends AppCompatActivity {
 
     ImageView imageview;
     FloatingActionButton floatbtn;
+    Toolbar toolbar;
+    Button logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +34,8 @@ public class doctorProfile extends AppCompatActivity {
 
         imageview = findViewById(R.id.imageView);
         floatbtn = findViewById(R.id.floatingActionButton);
-
+        toolbar = findViewById(R.id.toolbar);
+        logout = findViewById(R.id.logout);
 
 
         ActivityResultLauncher<Intent> resultLauncher = registerForActivityResult(
@@ -59,6 +65,16 @@ public class doctorProfile extends AppCompatActivity {
             resultLauncher.launch(intent);
         });
 
+        toolbar.setNavigationOnClickListener(view -> {
+            Intent intent = new Intent(doctorProfile.this,patientDetails.class);
+            startActivity(intent);
+        });
+
+        logout.setOnClickListener(view -> {
+            Intent intent = new Intent(doctorProfile.this,loginPage.class);
+            startActivity(intent);
+            Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT).show();
+        });
 
     } //onCreate ends...
 

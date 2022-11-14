@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="15sp"
     tools:context=".patientDetails">
 
 
@@ -27,5 +26,29 @@
         android:dividerHeight="3sp"
         />
 
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottomAppBar"
+            style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:menu="@menu/bottom_bar"
+            app:navigationIcon="@drawable/ic_baseline_people_24" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:contentDescription="@string/addPatient"
+            app:backgroundTint="@color/ic_add02_24dp_background"
+            app:layout_anchor="@id/bottomAppBar"
+            app:rippleColor="#FFFFFF"
+            app:srcCompat="@drawable/ic_baseline_add_circle_24" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </RelativeLayout>

@@ -19,15 +19,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:title="Profile"
-            app:titleMarginStart="120sp"
+            app:titleMarginStart="100sp"
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
             app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
             tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp" />
+            tools:layout_editor_absoluteY="0dp"
+            />
 
     </com.google.android.material.appbar.AppBarLayout>
+
+
+
+
+
+
 
 
     <ImageView
@@ -36,7 +43,7 @@
         android:layout_height="230dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="57dp"
+        android:layout_marginTop="67dp"
         android:background="@drawable/round_outline"
         android:clipToOutline="true"
         android:contentDescription="@string/show_image"
@@ -75,7 +82,7 @@
         app:cardElevation="10dp"
         app:cardCornerRadius="20dp"
         android:layout_below="@id/doctorName"
-        app:cardBackgroundColor="@color/black"
+        app:cardBackgroundColor="@color/white"
         app:cardMaxElevation="12dp"
         app:cardPreventCornerOverlap="true"
         app:cardUseCompatPadding="true"
@@ -165,7 +172,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="LOGOUT"
-            android:layout_marginTop="280sp"
+            android:id="@+id/logout"
+            android:layout_marginTop="270sp"
             android:layout_marginHorizontal="10sp"
             />
 

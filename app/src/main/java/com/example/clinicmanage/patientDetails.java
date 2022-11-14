@@ -2,11 +2,16 @@ package com.example.clinicmanage;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
+
+import com.google.android.material.bottomappbar.BottomAppBar;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,6 +23,8 @@ public class patientDetails extends AppCompatActivity {
     SearchView searchview;
     ArrayList<String> list;
     ArrayAdapter adapter;
+   BottomAppBar bottomAppBar;
+  
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +33,7 @@ public class patientDetails extends AppCompatActivity {
 
         listview = findViewById(R.id.listView);
         searchview = findViewById(R.id.searchView);
+        bottomAppBar = findViewById(R.id.bottomAppBar);
 
 
         String[] ListElements = new String[] {
@@ -60,6 +68,20 @@ public class patientDetails extends AppCompatActivity {
 //        });
 //
 
+    bottomAppBar.setNavigationOnClickListener(view -> {
+        Intent intent = new Intent(patientDetails.this,doctorProfile.class);
+        startActivity(intent);
+    });
+
+    bottomAppBar.setOnMenuItemClickListener(menuItem -> {
+        switch (menuItem.getItemId()) {
+            case R.id.userProfile:
+                Intent intent = new Intent(patientDetails.this,doctorProfile.class);
+                startActivity(intent);
+               return  true;
+        }
+        return true;
+        });
 
 
     } //onCreate end...

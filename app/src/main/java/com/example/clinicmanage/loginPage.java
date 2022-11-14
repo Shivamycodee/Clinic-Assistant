@@ -32,7 +32,7 @@ public class loginPage extends AppCompatActivity {
 
           if( db.verifyUser(Mail,Password)) {
 
-              Intent intent = new Intent(loginPage.this,doctorProfile.class);
+              Intent intent = new Intent(loginPage.this,patientDetails.class);
               startActivity(intent);
               Toast.makeText(this, "Successfully logged in", Toast.LENGTH_SHORT).show();
           }

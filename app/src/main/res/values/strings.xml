@@ -24,4 +24,6 @@
     <string name="doctorName">Doctor Fullness</string>
     <string name="show_image">show Image</string>
     <string name="Add_image">Add mage</string>
+    <string name="addPatient">Add_patient</string>
+    <string name="profile">Profile</string>
 </resources>
