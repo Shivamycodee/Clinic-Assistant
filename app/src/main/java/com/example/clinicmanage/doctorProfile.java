@@ -7,6 +7,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ public class doctorProfile extends AppCompatActivity {
     FloatingActionButton floatbtn;
     Toolbar toolbar;
     Button logout;
+    String loginId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,14 @@ public class doctorProfile extends AppCompatActivity {
         floatbtn = findViewById(R.id.floatingActionButton);
         toolbar = findViewById(R.id.toolbar);
         logout = findViewById(R.id.logout);
+
+        DoctorDatabase db = new DoctorDatabase(this);
+
+            Intent in = getIntent();
+            loginId = in.getStringExtra("login_id");
+            Toast.makeText(this,loginId, Toast.LENGTH_SHORT).show();
+
+
 
 
         ActivityResultLauncher<Intent> resultLauncher = registerForActivityResult(
@@ -50,6 +60,7 @@ public class doctorProfile extends AppCompatActivity {
                                         getContentResolver(), intent.getData()
                                 );
                                 imageview.setImageBitmap(bitmap);
+                                Toast.makeText(doctorProfile.this, imageview.toString(), Toast.LENGTH_SHORT).show();
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }

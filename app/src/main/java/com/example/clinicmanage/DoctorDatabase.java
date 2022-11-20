@@ -24,13 +24,13 @@ public class DoctorDatabase extends SQLiteOpenHelper {
     public static final String PASSWORD = "Password";
 
     public DoctorDatabase(@Nullable Context context) {
-        super(context,"DoctorDatabase.db",null,2);
+        super(context, "DoctorDatabase.db", null, 2);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-       String query = "CREATE TABLE " + DOCTOR_TABLE + " (" + F_NAME + " TEXT," + L_NAME + " TEXT," + E_MAIL + " TEXT," + PH_NUMBER + " TEXT PRIMARY KEY, " + LIC_NO + " TEXT); ";
-       db.execSQL(query);
+        String query = "CREATE TABLE " + DOCTOR_TABLE + " (" + F_NAME + " TEXT," + L_NAME + " TEXT," + E_MAIL + " TEXT," + PH_NUMBER + " TEXT PRIMARY KEY, " + LIC_NO + " TEXT); ";
+        db.execSQL(query);
     }
 
     @Override
@@ -38,26 +38,27 @@ public class DoctorDatabase extends SQLiteOpenHelper {
 //        if(newVersion>oldVersion) db.execSQL("ALTER TABLE DoctorTable ADD COLUMN " + PASSWORD + " TEXT");
     }
 
-    public void addData(String name,String Lastname,String mail,String phNo,String lic){
+    public void addData(String name, String Lastname, String mail, String phNo, String lic) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues val = new ContentValues();
-        val.put(F_NAME,name);
-        val.put(L_NAME,Lastname);
-        val.put(E_MAIL,mail);
-        val.put(PH_NUMBER,phNo);
-        val.put(LIC_NO,lic);
-        db.insert(DOCTOR_TABLE,null,val);
+        val.put(F_NAME, name);
+        val.put(L_NAME, Lastname);
+        val.put(E_MAIL, mail);
+        val.put(PH_NUMBER, phNo);
+        val.put(LIC_NO, lic);
+        db.insert(DOCTOR_TABLE, null, val);
     }
 
 
-    public boolean checkNumber(View view, String ph){
+    public boolean checkNumber(View view, String ph) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("Select * from DoctorTable",null);
-        if(cursor.getCount()==0) Toast.makeText(view.getContext(), "NO DATA RECORD", Toast.LENGTH_SHORT).show();
-        else{
-            while(cursor.moveToNext()){
+        Cursor cursor = db.rawQuery("Select * from DoctorTable", null);
+        if (cursor.getCount() == 0)
+            Toast.makeText(view.getContext(), "NO DATA RECORD", Toast.LENGTH_SHORT).show();
+        else {
+            while (cursor.moveToNext()) {
                 String temp = cursor.getString(3);
-                if(Objects.equals(temp, ph)) return false;
+                if (Objects.equals(temp, ph)) return false;
             }
         }
         cursor.close();
@@ -67,23 +68,40 @@ public class DoctorDatabase extends SQLiteOpenHelper {
 
     public void passPassword(String confirmPassword) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("Select * from DoctorTable",null);
+        Cursor cursor = db.rawQuery("Select * from DoctorTable", null);
         cursor.moveToLast();
         String sql = "UPDATE DoctorTable SET Password = " + confirmPassword + " WHERE  PHNUMBER = " + cursor.getString(3);
-            db.execSQL(sql);
+        db.execSQL(sql);
 
     }
 
     public boolean verifyUser(String mail, String password) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("Select * from DoctorTable",null);
-        while(cursor.moveToNext()){
+        Cursor cursor = db.rawQuery("Select * from DoctorTable", null);
+        while (cursor.moveToNext()) {
             String temp = cursor.getString(2);
-            if(Objects.equals(temp, mail)){
+            if (Objects.equals(temp, mail)) {
                 String pass = cursor.getString(5);
-                if(password.equals(pass)) return true;
+                if (password.equals(pass)) return true;
             }
         }
         return false;
     }
+
+    public String getNumber(String mail, String password) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("Select * from DoctorTable", null);
+        while (cursor.moveToNext()) {
+            String temp = cursor.getString(2);
+            if (Objects.equals(temp, mail)) {
+                String pass = cursor.getString(5);
+                if (password.equals(pass)) {
+                    return cursor.getString(3);
+                }
+            }
+        }
+        return "Not Registered";
+    }
+
+
 } // class ends...

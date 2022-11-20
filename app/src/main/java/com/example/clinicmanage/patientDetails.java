@@ -24,7 +24,7 @@ public class patientDetails extends AppCompatActivity {
     ArrayList<String> list;
     ArrayAdapter adapter;
    BottomAppBar bottomAppBar;
-  
+   String loginId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +34,10 @@ public class patientDetails extends AppCompatActivity {
         listview = findViewById(R.id.listView);
         searchview = findViewById(R.id.searchView);
         bottomAppBar = findViewById(R.id.bottomAppBar);
+
+        Intent i = getIntent();
+        loginId = i.getStringExtra("login_id");
+        Toast.makeText(this,loginId, Toast.LENGTH_SHORT).show();
 
 
         String[] ListElements = new String[] {
@@ -69,14 +73,14 @@ public class patientDetails extends AppCompatActivity {
 //
 
     bottomAppBar.setNavigationOnClickListener(view -> {
-        Intent intent = new Intent(patientDetails.this,doctorProfile.class);
-        startActivity(intent);
+      // set intent...
     });
 
     bottomAppBar.setOnMenuItemClickListener(menuItem -> {
         switch (menuItem.getItemId()) {
             case R.id.userProfile:
                 Intent intent = new Intent(patientDetails.this,doctorProfile.class);
+                intent.putExtra("login_id",loginId);
                 startActivity(intent);
                return  true;
         }

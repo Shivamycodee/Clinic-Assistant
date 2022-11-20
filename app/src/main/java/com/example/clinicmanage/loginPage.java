@@ -33,6 +33,7 @@ public class loginPage extends AppCompatActivity {
           if( db.verifyUser(Mail,Password)) {
 
               Intent intent = new Intent(loginPage.this,patientDetails.class);
+              intent.putExtra("login_id",db.getNumber(Mail,Password));
               startActivity(intent);
               Toast.makeText(this, "Successfully logged in", Toast.LENGTH_SHORT).show();
           }
@@ -44,6 +45,6 @@ public class loginPage extends AppCompatActivity {
             startActivity(intent);
         });
 
-
     }
+
 }
