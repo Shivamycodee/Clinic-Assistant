@@ -18,6 +18,7 @@ public class loginPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
 
+
         mail = findViewById(R.id.verifyMail);
         password = findViewById(R.id.verifyPassword);
         verify = findViewById(R.id.verifyUser);
@@ -33,7 +34,7 @@ public class loginPage extends AppCompatActivity {
           if( db.verifyUser(Mail,Password)) {
 
               Intent intent = new Intent(loginPage.this,patientDetails.class);
-              intent.putExtra("login_id",db.getNumber(Mail,Password));
+              intent.putExtra("login_id",db.getPhoneNumber(Mail,Password));
               startActivity(intent);
               Toast.makeText(this, "Successfully logged in", Toast.LENGTH_SHORT).show();
           }

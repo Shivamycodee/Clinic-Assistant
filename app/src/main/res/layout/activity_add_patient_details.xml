@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddPatientDetails">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="Patient Details"
+            app:titleMarginStart="40sp"
+            app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp"
+            />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/patientScroll"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20sp">
+
+
+            <EditText
+                android:id="@+id/patientName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Patient Name"
+                android:layout_marginTop="80sp"
+                android:minHeight="48dp"
+                android:textAlignment="center"
+                android:inputType="textPersonName"
+                android:autofillHints="name" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_below="@id/patientName"
+                android:layout_height="wrap_content"
+                android:id="@+id/EpatientName"
+                android:textAlignment="center"
+                android:visibility="invisible"
+                android:textColor="#FF0000"
+                android:text="*Enter Patient Name*"
+                />
+
+
+
+            <EditText
+                android:id="@+id/patientMail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/patientName"
+                android:hint="Patient Email Address"
+                android:layout_marginTop="80sp"
+                android:minHeight="48dp"
+                android:textAlignment="center"
+                android:inputType="textEmailAddress"
+                android:autofillHints="emailAddress" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_below="@id/patientMail"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:id="@+id/EpatientMail"
+                android:visibility="invisible"
+                android:textColor="#FF0000"
+                android:text="*Enter Patient Email*"
+                />
+
+            <EditText
+                android:id="@+id/patientNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/patientMail"
+                android:hint="Patient Phone Number"
+                android:layout_marginTop="80sp"
+                android:minHeight="48dp"
+                android:textAlignment="center"
+                android:autofillHints="phone"
+                android:inputType="phone" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_below="@id/patientNumber"
+                android:id="@+id/EpatientNumber"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="#FF0000"
+                android:visibility="invisible"
+                android:text="*Enter Patient Number*"
+                />
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/patientNumber"
+                android:layout_marginTop="80sp"
+                android:orientation="horizontal"
+                android:id="@+id/patientGender" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gender:"
+                    android:textSize="15sp"
+
+                    />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="49sp"
+                    android:id="@+id/genderMale"
+                    android:text="Male"
+                     android:textSize="15sp"
+                    />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="49sp"
+                    android:id="@+id/genderFemale"
+                    android:text="Female"
+                    android:textSize="15sp"
+                    />
+
+
+            </RadioGroup>
+
+
+            <EditText
+                android:id="@+id/patientAge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/patientNumber"
+                android:layout_alignBaseline="@id/patientGender"
+                android:layout_alignEnd="@id/patientNumber"
+                android:hint="Patient age"
+                android:layout_marginTop="70sp"
+                android:minHeight="48dp"
+                android:textAlignment="center"
+                android:autofillHints="phone"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_below="@id/patientAge"
+                android:layout_height="wrap_content"
+                android:id="@+id/EpatientAge"
+                android:textAlignment="viewEnd"
+                android:textColor="#FF0000"
+                android:visibility="invisible"
+                android:text="*Enter Age*"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_below="@id/patientAge"
+                android:layout_height="wrap_content"
+                android:textAlignment="viewStart"
+                android:layout_marginLeft="40sp"
+                android:id="@+id/EpatientGender"
+                android:textColor="#FF0000"
+                android:visibility="invisible"
+                android:text="*Choose Gender*"
+                />
+
+            <EditText
+                android:id="@+id/patientHeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/patientGender"
+                android:textAlignment="center"
+                android:hint="Height(in cm)"
+                android:layout_marginTop="60sp"
+                android:minHeight="48dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_below="@id/patientHeight"
+                android:layout_height="wrap_content"
+                android:textAlignment="viewStart"
+                android:id="@+id/EpatientHeight"
+                android:textColor="#FF0000"
+                android:visibility="invisible"
+                android:text="*Enter Height*"
+                />
+
+            <EditText
+                android:id="@+id/patientWeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/patientHeight"
+                android:layout_alignEnd="@id/patientNumber"
+                android:hint="Weight(in Kg)"
+                android:layout_marginTop="60sp"
+             android:textAlignment="center"
+                android:minHeight="48dp"
+                android:inputType="number"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_below="@id/patientWeight"
+                android:layout_height="wrap_content"
+                android:textAlignment="viewEnd"
+                android:id="@+id/EpatientWeight"
+                android:visibility="invisible"
+                android:textColor="#FF0000"
+                android:text="*Enter Weight*"
+                />
+
+            <EditText
+                android:id="@+id/patientHeartRate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/patientWeight"
+                android:hint="Heart Rate"
+                android:minHeight="48dp"
+                android:textAlignment="center"
+                android:layout_marginTop="60sp"
+                android:inputType="number"
+                android:autofillHints="phone" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_below="@id/patientHeartRate"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="#FF0000"
+                android:id="@+id/EpatientHeartRate"
+                android:visibility="invisible"
+                android:text="*Enter Heart Rate *"
+                />
+
+            <EditText
+                android:id="@+id/patientWbc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/patientHeartRate"
+                android:hint="WBC Count"
+                android:minHeight="48dp"
+                android:textAlignment="center"
+                android:layout_marginTop="60sp"
+                android:autofillHints="no"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_below="@id/patientWbc"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="#FF0000"
+                android:id="@+id/EpatientWbc"
+                android:visibility="invisible"
+                android:text="*Enter WBC count*"
+                />
+
+            <EditText
+                android:id="@+id/patientSugarLevel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/patientWbc"
+                android:hint="Sugar Level"
+                android:minHeight="48dp"
+                android:layout_marginTop="60sp"
+                android:textAlignment="center"
+                android:inputType="number"
+                android:autofillHints="no" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_below="@id/patientSugarLevel"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:id="@+id/EpatientSugarLevel"
+                android:textColor="#FF0000"
+                android:visibility="invisible"
+                android:text="*Enter Sugar Level*"
+                />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="56sp"
+                android:layout_marginTop="50sp"
+                android:layout_below="@+id/patientSugarLevel"
+                android:text="Submit"
+                android:id="@+id/submitPatient"
+                android:textAlignment="center" />
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+
+</RelativeLayout>

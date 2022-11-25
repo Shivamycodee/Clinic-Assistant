@@ -43,6 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
+            android:id="@+id/floatClick"
             android:contentDescription="@string/addPatient"
             app:backgroundTint="@color/ic_add02_24dp_background"
             app:layout_anchor="@id/bottomAppBar"

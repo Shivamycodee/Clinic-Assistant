@@ -2,6 +2,7 @@ package com.example.clinicmanage;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.CursorWindow;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,15 +10,26 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.lang.reflect.Field;
+
 public class MainActivity extends AppCompatActivity {
 
     EditText Fname , Lname, Mail, PhNo, otp,licNo;
     TextView fnameWarn, lnameWarn, mailWarn, phonNoWarn, otpWarn;
-    Button otpBtn, verBtn; public static int i=1;
+    Button otpBtn, verBtn,signInBtn;
+    public static int i=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        try {
+            Field field = CursorWindow.class.getDeclaredField("sCursorWindowSize");
+            field.setAccessible(true);
+            field.set(null, 100 * 1024 * 1024); //the 100MB is the new size
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
     if(i == 1) {
@@ -35,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
          Mail= findViewById(R.id.mail);
          PhNo= findViewById(R.id.phonNo);
          licNo = findViewById(R.id.LicNo);
+         signInBtn = findViewById(R.id.btnSignIn);
 
         DoctorDatabase db = new DoctorDatabase(MainActivity.this);
 
@@ -64,6 +77,11 @@ public class MainActivity extends AppCompatActivity {
             PhNo.setText(""); }
     }
 
+        });
+
+        signInBtn.setOnClickListener(view -> {
+            Intent i = new Intent(this,loginPage.class);
+            startActivity(i);
         });
 
     } // end of onCreate...

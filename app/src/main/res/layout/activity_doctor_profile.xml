@@ -19,11 +19,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:title="Profile"
-            app:titleMarginStart="100sp"
+            app:titleMarginStart="150sp"
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
-            app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp"
             />
@@ -88,25 +87,50 @@
         app:cardUseCompatPadding="true"
         >
 
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="25sp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Specialization"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:id="@+id/doctorSpecial"
+                android:text="Dentist"
+                />
+
+
+        </LinearLayout>
+
   <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:orientation="horizontal"
-      android:layout_marginTop="30sp"
+      android:layout_marginTop="70sp"
       >
 
       <TextView
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_marginStart="30sp"
+          android:gravity="center"
           android:text="Register No."
           />
 
       <TextView
-          android:layout_width="wrap_content"
+          android:layout_width="match_parent"
           android:layout_height="wrap_content"
+          android:id="@+id/regNo"
+          android:gravity="center"
           android:text="12345678999"
-          android:layout_marginStart="110sp"
           />
 
 
@@ -116,20 +140,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="100sp"
+        android:layout_marginTop="120sp"
         >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30sp"
+            android:gravity="center"
             android:text="EMIAL"
             />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="110sp"
+            android:gravity="center"
+            android:id="@+id/mail"
             android:text="shivamyadav@gmail.com"
             />
 
@@ -140,20 +165,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="160sp"
+        android:layout_marginTop="170sp"
         >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30sp"
+            android:gravity="center"
             android:text="Number"
             />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="140sp"
+            android:gravity="center"
+            android:id="@+id/phNo"
             android:text="8469333354"
             />
 
@@ -162,8 +188,8 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Patient Data"
-        android:id="@+id/patientData"
+        android:text="Save Profile"
+        android:id="@+id/saveProfile"
         android:layout_marginHorizontal="10sp"
         android:layout_marginTop="230sp"
     />

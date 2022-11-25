@@ -23,6 +23,7 @@
         android:layout_centerHorizontal="true"
         android:inputType="text"
         android:hint="@string/enter_mail"
+        android:textAlignment="center"
         android:minHeight="50sp"
         android:importantForAutofill="no" />
 
@@ -33,6 +34,7 @@
         android:layout_below="@id/verifyMail"
         android:layout_marginTop="60sp"
         android:hint="@string/enter_password"
+        android:textAlignment="center"
         android:inputType="textPassword"
         android:autofillHints="no"
         android:minHeight="50sp"
