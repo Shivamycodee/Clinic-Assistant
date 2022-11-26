@@ -35,7 +35,7 @@ public class doctorProfile extends AppCompatActivity {
     Button logout, save;
     String loginId;
     Bitmap bitmap;
-    TextView specialdata,regNo,mail,phNo;
+    TextView specialdata,regNo,mail,phNo,fullName,fName,lName;
 
 
     @Override
@@ -59,10 +59,12 @@ public class doctorProfile extends AppCompatActivity {
         regNo = findViewById(R.id.regNo);
         mail = findViewById(R.id.mail);
         phNo = findViewById(R.id.phNo);
+        fullName = findViewById(R.id.doctorName);
 
         specialdata.setText(db.getSpecial(loginId));
         regNo.setText(db.getRegNo(loginId));
         mail.setText(db.getMail(loginId));
+        fullName.setText(db.getName(loginId));
         phNo.setText(loginId);
 
 

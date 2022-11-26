@@ -14,14 +14,11 @@ import android.widget.Toast;
 
 public class AddPatientDetails extends AppCompatActivity {
 
-    EditText patientName,patientMail,patientNumber,patientAge,patientHeight,patientWeight,patientHeartRate,patientWbc,patientSugarLevel;
-    TextView EpatientName,EpatientMail,EpatientNumber,EpatientAge,EpatientHeight,EpatientWeight,EpatientHeartRate,EpatientWbc,EpatientSugarLevel,EpatientGender;
-    String name,mail,number,age,height,weight,heartRate,wbc,sugarLevel;
+    EditText patientName,patientMail,patientNumber,patientAge,patientHeight,patientWeight,patientHeartRate,patientWbc,patientSugarLevel,patientBloodType;
+    TextView EpatientName,EpatientMail,EpatientNumber,EpatientAge,EpatientHeight,EpatientWeight,EpatientHeartRate,EpatientWbc,EpatientSugarLevel,EpatientGender,EpatientBloodType;
     RadioGroup genderCheck;
-    int getId;
     RadioButton gender;
     Button submit;
-    String genderValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,54 +30,80 @@ public class AddPatientDetails extends AppCompatActivity {
         patientNumber = findViewById(R.id.patientNumber);
         patientAge = findViewById(R.id.patientAge);
         patientHeight = findViewById(R.id.patientHeight);
+        patientWeight = findViewById(R.id.patientWeight);
         patientHeartRate = findViewById(R.id.patientHeartRate);
         patientWbc = findViewById(R.id.patientWbc);
         patientSugarLevel = findViewById(R.id.patientSugarLevel);
+        patientBloodType = findViewById(R.id.patientBloodType);
 
         DoctorDatabase db = new DoctorDatabase(AddPatientDetails.this);
         submit = findViewById(R.id.submitPatient);
 
-        name = patientName.getText().toString();
-        mail = patientMail.getText().toString();
-        number = patientNumber.getText().toString();
-        age = patientAge.getText().toString();
-        height = patientHeight.getText().toString();
-        weight = patientWeight.getText().toString();
-        heartRate = patientHeartRate.getText().toString();
-        wbc = patientWbc.getText().toString();
-        sugarLevel = patientSugarLevel.getText().toString();
+
 
 
 
     submit.setOnClickListener(view -> {
-        if( checkInput()){
-//            db.savePatientData(name,mail,number,age,height,weight,heartRate,wbc,sugarLevel);
-            Toast.makeText((Context) this, "successfully data entered", Toast.LENGTH_SHORT).show();
-            Toast.makeText((Context) this, name+" "+age+" "+height, Toast.LENGTH_SHORT).show();
+        String name,mail,number,age,height,weight,heartRate,wbc,sugarLevel,bloodType,genderValue;
+        int getId;
 
-        }else{
-            Toast.makeText(this, "Enter details", Toast.LENGTH_SHORT).show();
+        name = String.valueOf(patientName.getText());
+        mail = String.valueOf(patientMail.getText());
+        number = String.valueOf(patientNumber.getText());
+        age = String.valueOf(patientAge.getText());
+        height = String.valueOf(patientHeight.getText());
+        weight = String.valueOf(patientWeight.getText());
+        heartRate = String.valueOf(patientHeartRate.getText());
+        wbc = String.valueOf(patientWbc.getText());
+        sugarLevel = String.valueOf(patientSugarLevel.getText());
+        bloodType = String.valueOf(patientBloodType.getText());
+        genderCheck = findViewById(R.id.patientGender);
+        EpatientGender = findViewById(R.id.EpatientGender);
+
+        getId = genderCheck.getCheckedRadioButtonId();
+        if(getId == -1) {
+            EpatientGender.setVisibility(View.VISIBLE);
+        } else {
+            EpatientGender.setVisibility(View.INVISIBLE);
         }
 
+      if(db.isPresent(number)) {
+          if (checkInput() && getId != -1) {
+              gender = findViewById(getId);
+              genderValue = String.valueOf(gender);
+
+              if (db.savePatientData(name, mail, number, age, genderValue, height, weight, bloodType, heartRate, wbc, sugarLevel)) {
+                  Toast.makeText((Context) this, "successfully data entered", Toast.LENGTH_SHORT).show();
+              } else {
+                  Toast.makeText(this, "Data Not Entered In Database", Toast.LENGTH_SHORT).show();
+              }
+          } else {
+              Toast.makeText(this, "Enter details", Toast.LENGTH_SHORT).show();
+          }
+      }else{
+          Toast.makeText(this, "Patient data already exist.", Toast.LENGTH_SHORT).show();
+      }
+
     });
+
 
     } // oncreate method ends...
 
 
     public boolean checkInput(){
+
         boolean flag = true;
 
         EpatientName = findViewById(R.id.EpatientName);
         EpatientMail = findViewById(R.id.EpatientMail);
         EpatientNumber = findViewById(R.id.EpatientNumber);
-        EpatientAge = findViewById(R.id.EpatientAge);
         EpatientHeight = findViewById(R.id.EpatientHeight);
         EpatientHeartRate = findViewById(R.id.EpatientHeartRate);
+        EpatientWeight = findViewById(R.id.EpatientWeight);
         EpatientWbc = findViewById(R.id.EpatientWbc);
         EpatientSugarLevel = findViewById(R.id.EpatientSugarLevel);
-
-        genderCheck = findViewById(R.id.patientGender);
-
+        EpatientAge = findViewById(R.id.EpatientAge);
+        EpatientBloodType = findViewById(R.id.EpatientBloodType);
 
         if(String.valueOf(patientName.getText()).equals("")) {
             EpatientName.setVisibility(View.VISIBLE);
@@ -107,6 +130,14 @@ public class AddPatientDetails extends AppCompatActivity {
             flag = true;
         }
 
+        if(String.valueOf(patientBloodType.getText()).equals("")) {
+            EpatientBloodType.setVisibility(View.VISIBLE);
+            flag = false;
+        } else {
+            EpatientBloodType.setVisibility(View.INVISIBLE);
+            flag = true;
+        }
+
         if(String.valueOf(patientSugarLevel.getText()).equals("")) {
             EpatientSugarLevel.setVisibility(View.VISIBLE);
             flag = false;
@@ -127,7 +158,7 @@ public class AddPatientDetails extends AppCompatActivity {
             EpatientWeight.setVisibility(View.VISIBLE);
             flag = false;
         } else {
-            EpatientWeight.setVisibility(View.VISIBLE);
+            EpatientWeight.setVisibility(View.INVISIBLE);
             flag = true;
         }
 
@@ -153,18 +184,6 @@ public class AddPatientDetails extends AppCompatActivity {
             EpatientWbc.setVisibility(View.INVISIBLE);
             flag = true;
         }
-
-        getId = genderCheck.getCheckedRadioButtonId();
-        if(getId == -1) {
-            EpatientGender.setVisibility(View.VISIBLE);
-            flag = false;
-        } else {
-            gender = findViewById(getId);
-          genderValue = gender.getText().toString();
-            EpatientGender.setVisibility(View.INVISIBLE);
-            flag = true;
-        }
-
        return flag;
     }
 

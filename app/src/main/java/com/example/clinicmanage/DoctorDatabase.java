@@ -227,16 +227,52 @@ public class DoctorDatabase extends SQLiteOpenHelper {
         return null;
     }
 
-    public void savePatientData(String name, String mail, String number, String age,
-                                String height, String weight, String heartRate, String wbc,
+    public String getName(String loginId){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("Select * from DoctorTable", null);
+        while (cursor.moveToNext()) {
+            String temp = cursor.getString(3);
+            if (Objects.equals(temp,loginId)){
+               String name = cursor.getString(0) +" " + cursor.getString(1);
+               return name;
+            }
+        }
+        return null;
+    }
+
+
+    public Boolean savePatientData(String name, String mail, String number, String age,String gender,
+                                String height, String weight,String bloodType ,String heartRate, String wbc,
                                 String sugarLevel) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues val = new ContentValues();
-        val.put(PATIENT_PH_NO,number);
-        val.put(PATIENT_NAME,name);
-        val.put(PATIENT_MAIL,mail);
-        // gender
+        try {
+            val.put(PATIENT_PH_NO, number);
+            val.put(PATIENT_NAME, name);
+            val.put(PATIENT_MAIL, mail);
+            val.put(PATIENT_AGE, age);
+            val.put(PATIENT_GENDER, gender);
+            val.put(PATIENT_HEIGHT, height);
+            val.put(PATIENT_WEIGHT, weight);
+            val.put(PATIENT_BLOOD_TYPE, bloodType);
+            val.put(PATIENT_HEART_RATE, heartRate);
+            val.put(PATIENT_WBC_COUNT, wbc);
+            val.put(PATIENT_SUGAR_LEVEL, sugarLevel);
+            db.insert(PATIENT_DETAIL, null, val);
+            return true;
+        }catch(Exception e){
+            return false;
+        }
+    }
 
-
+    public boolean isPresent(String number) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("Select * from PatientDetail", null);
+        while (cursor.moveToNext()) {
+            String temp = cursor.getString(0);
+            if (Objects.equals(temp,number))
+                     return false;
+            }
+            return true;
     }
 } // class ends...

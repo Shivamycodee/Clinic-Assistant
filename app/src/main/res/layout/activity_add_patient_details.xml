@@ -191,6 +191,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/patientGender"
                 android:textAlignment="center"
+                android:inputType="number"
                 android:hint="Height(in cm)"
                 android:layout_marginTop="60sp"
                 android:minHeight="48dp" />
@@ -231,10 +232,33 @@
                 />
 
             <EditText
-                android:id="@+id/patientHeartRate"
+                android:id="@+id/patientBloodType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/patientWeight"
+                android:hint="Blood Type"
+                android:minHeight="48dp"
+                android:textAlignment="center"
+                android:layout_marginTop="60sp"
+               android:inputType="text"
+                android:autofillHints="none" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="*Enter Patient Blood Type*"
+                android:textColor="#FF0000"
+                android:visibility="invisible"
+                android:layout_below="@+id/patientBloodType"
+                android:id="@+id/EpatientBloodType"
+                android:gravity="center"/>
+
+
+            <EditText
+                android:id="@+id/patientHeartRate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/patientBloodType"
                 android:hint="Heart Rate"
                 android:minHeight="48dp"
                 android:textAlignment="center"
